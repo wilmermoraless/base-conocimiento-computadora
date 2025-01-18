@@ -9,7 +9,7 @@ def index():
     return render_template("index.html")
 
 class DiagnosticoComputadora(KnowledgeEngine):
-    def _init_(self):
+    def __init__(self):
         super().__init__()
         self.sugerencia = ""
 
@@ -58,6 +58,8 @@ def diagnosticar_formulario():
         </div>
     """
 if __name__ == "__main__":
-    app.run(debug=True)
+        import os
+        port = int(os.environ.get("PORT", 5000))  # Render asignará un puerto en la variable de entorno PORT
+        app.run(host="0.0.0.0", port=port)
 
  
